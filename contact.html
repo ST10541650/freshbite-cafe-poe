@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us - FreshBite Café</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <style>
+    .map { 
+      height: 320px; 
+      border-radius: 6px; 
+      flex: 1; 
+      min-width: 280px; 
+    }
+    .contact-columns { 
+      display: flex; 
+      gap: 24px; 
+      flex-wrap: wrap; 
+    }
+    .contact-info { 
+      max-width: 420px; 
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="catering.html">Catering</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Find Us</h1>
+    <div class="contact-columns">
+      <div class="contact-info">
+        <h2>Where We Are</h2>
+        <p><strong>FreshBite Café</strong></p>
+        <p>
+          12 Radar Drive<br>
+          Durban North, 4051
+        </p>
+        <p>
+          <strong>Hours:</strong> Mon - Sat: 07:00 - 17:00<br>
+          <strong>Phone:</strong> (031) 555-0123<br>
+          <strong>Email:</strong> <a href="mailto:info@freshbitecafe.co.za">info@freshbitecafe.co.za</a>
+        </p>
+
+        <p><a id="directions-link" href="#" target="_blank" rel="noopener">Get directions</a></p>
+      </div>
+
+      <div id="map" class="map" aria-label="Map showing FreshBite Cafe location"></div>
+    </div>
+
+    <form action="#" method="post" class="contact-form" style="margin-top:2rem;">
+      <h2>Drop us a message</h2>
+<label for="name">Your name</label>
+<input id="name" name="name" type="text" required>
+
+<label for="email">Email</label>
+<input id="email" name="email" type="email" required>
+
+<label for="message">What do you need?</label>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn-primary">Send Message</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 FreshBite Café. All rights reserved.</div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script>
+    const address = '12 Radar Drive, Durban North, 4051';
+    const mapEl = document.getElementById('map');
+    const directionsLink = document.getElementById('directions-link');
+
+    fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(address), {
+      headers: { 'User-Agent': 'FreshBiteCafeWebsite/1.0' }
+    })
+      .then(r => r.json())
+      .then(results => {
+        if (!results || results.length === 0) return;
+        const loc = results[0];
+        const lat = parseFloat(loc.lat);
+        const lon = parseFloat(loc.lon);
+
+        const map = L.map(mapEl).setView([lat, lon], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 19,
+          attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+        L.marker([lat, lon]).addTo(map).bindPopup('<strong>FreshBite Café</strong><br>' + address).openPopup();
+
+        directionsLink.href = 'https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=;' + lat + '%2C' + lon;
+      })
+      .catch(err => console.error('Geocode error', err));
+  </script>
+</body>
+</html>

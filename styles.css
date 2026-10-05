@@ -1,0 +1,314 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & RESET (FreshBite Café Theme)
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg-cream: #FFF4E6;
+  --primary-brown: #6B4226;
+  --accent-green: #7A9E7E;
+  --charcoal-dark: #2C2C2C;
+  --card-bg: #FFFFFF;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--charcoal-dark);
+  background-color: var(--bg-cream);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Base Headings & Links */
+h1, h2, h3 {
+  color: var(--primary-brown);
+  margin-bottom: 0.75rem;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--primary-brown);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--accent-green);
+  text-decoration: underline;
+}
+
+a:focus {
+  outline: 2px solid var(--accent-green);
+  outline-offset: 4px;
+}
+
+/* Main Container Layout */
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+main.container {
+  flex: 1;
+  padding: 2rem 0;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
+header {
+  background-color: var(--primary-brown);
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+header nav a {
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+header nav a:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: var(--bg-cream);
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   3. GALLERY SECTION (gallery.html)
+   ========================================================================== */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.gallery img {
+  width: 260px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(44, 44, 44, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 12px rgba(44, 44, 44, 0.15);
+}
+
+/* Responsive Image Handling */
+img, picture {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ==========================================================================
+   4. MENU & CATERING SECTION (menu.html / catering.html)
+   ========================================================================== */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.menu-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid var(--accent-green);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+.menu-card img {
+  height: 200px;
+  object-fit: cover;
+  width: 100%;
+  display: block;
+}
+.menu-card:hover {
+  transform: translateY(-2px);
+}
+
+.price {
+  font-weight: bold;
+  color: var(--primary-brown);
+  float: right;
+}
+
+/* ==========================================================================
+   5. CONTACT & CATERING FORM & MAP (contact.html / catering.html)
+   ========================================================================== */
+.contact-columns {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.contact-info {
+  max-width: 420px;
+  flex: 1;
+}
+
+.map {
+  height: 320px;
+  border-radius: 6px;
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 600px;
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: var(--charcoal-dark);
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px rgba(122, 158, 126, 0.2);
+}
+
+.btn-primary {
+  align-self: flex-start;
+  background-color: var(--accent-green);
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: #638466;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+/* Quotes Grid */
+.quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.quote-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-top: 3px solid var(--primary-brown);
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN & BREAKPOINTS
+   ========================================================================== */
+@media screen and (max-width: 768px) {
+  header nav {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-columns {
+    flex-direction: column;
+  }
+
+  .btn-primary {
+    width: 100%;
+  }
+}
+
+/* ==========================================================================
+   7. FOOTER
+   ========================================================================== */
+footer {
+  background-color: var(--primary-brown);
+  color: #ffffff;
+  text-align: center;
+  padding: 1.25rem 0;
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+/* Tablet and up - horizontal nav */
+@media screen and (min-width: 768px) {
+  header nav.container {
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Desktop and up - 3 columns */
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}

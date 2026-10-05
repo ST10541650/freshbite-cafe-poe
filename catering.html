@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catering & Enquiries - FreshBite Café</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <nav class="container">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="menu.html">Menu</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="catering.html">Catering</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="container">
+   <h1>Need food for a group?</h1>
+    <p>We do office lunches, birthday platters, and meeting snacks. You tell us how many people, we sort the food and coffee.</p>
+    <h2>Request a Catering Quote</h2>
+    <form action="#" method="post" class="contact-form" style="margin-top:1rem;">
+      <label for="name">Full Name</label>
+      <input id="name" name="name" type="text" required>
+
+      <label for="email">Email Address</label>
+      <input id="email" name="email" type="email" required>
+
+      <label for="event-date">Event Date</label>
+      <input id="event-date" name="event-date" type="date" required>
+
+      <label for="guests">Estimated Number of Guests</label>
+      <input id="guests" name="guests" type="number" min="1" required>
+
+      <label for="details">Catering Details / Special Requests</label>
+      <textarea id="details" name="details" rows="5" required></textarea>
+
+      <button type="submit" class="btn-primary">Submit Enquiry</button>
+    </form>
+
+    <h2 style="margin-top:2.5rem;">Customer Reviews</h2>
+    <section class="quotes-grid">
+      <blockquote class="quote-card">
+       <p>"Ordered sandwich platters for 15 people last Tuesday. Everything arrived on time and there was nothing left."</p>
+        <cite>— Thabo M., Corporate Client</cite>
+      </blockquote>
+
+      <blockquote class="quote-card">
+        <p>"They did the coffee for my mom's 60th. Still get compliments about the muffins."</p>
+        <cite>— Lerato K., Local Resident</cite>
+      </blockquote>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© 2026 FreshBite Café. All rights reserved.</div>
+  </footer>
+
+</body>
+</html>
